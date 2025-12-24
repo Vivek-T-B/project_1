@@ -1,0 +1,103 @@
+/* Tablet styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .calculator-app {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .app-header {
+        padding: 15px;
+    }
+    
+    .app-header h1 {
+        font-size: 1.3rem;
+    }
+    
+    .calculator-container {
+        padding: 15px;
+    }
+    
+    .buttons-grid {
+        gap: 8px;
+    }
+    
+    .btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+    
+    .display {
+        padding: 15px;
+        min-height: 60px;
+    }
+    
+    .current-operand {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+    .calculator-container {
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .buttons-grid {
+        gap: 6px;
+    }
+    
+    .btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .display {
+        padding: 10px;
+        min-height: 50px;
+    }
+    
+    .current-operand {
+        font-size: 1.2rem;
+    }
+    
+    .previous-operand {
+        font-size: 0.8rem;
+    }
+    
+    .history-panel {
+        padding: 10px;
+    }
+    
+    .history-item {
+        padding: 8px;
+    }
+    
+    .history-expression {
+        font-size: 0.8rem;
+    }
+    
+    .history-result {
+        font-size: 1rem;
+    }
+}
+
+/* Small mobile styles */
+@media (max-width: 360px) {
+    .btn {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+    
+    .current-operand {
+        font-size: 1rem;
+    }
+    
+    .buttons-grid {
+        gap: 4px;
+    }
+}

@@ -1,0 +1,251 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --success-color: #27ae60;
+    --error-color: #e74c3c;
+    --warning-color: #f39c12;
+    --background-color: #ecf0f1;
+    --button-color: #bdc3c7;
+    --button-hover-color: #95a5a6;
+    --text-color: #2c3e50;
+    --border-radius: 8px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+}
+
+.calculator-app {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.app-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.session-status {
+    background: var(--success-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Calculator Display */
+.display {
+    background: var(--secondary-color);
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+    text-align: right;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.previous-operand {
+    font-size: 1rem;
+    opacity: 0.7;
+    margin-bottom: 5px;
+}
+
+.current-operand {
+    font-size: 2rem;
+    font-weight: 600;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+/* Calculator Buttons */
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    background: var(--button-color);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.btn:hover {
+    background: var(--button-hover-color);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-clear {
+    background: var(--warning-color);
+    color: white;
+}
+
+.btn-operator {
+    background: var(--accent-color);
+    color: white;
+}
+
+.btn-equals {
+    background: var(--success-color);
+    color: white;
+}
+
+.btn-zero {
+    grid-column: span 2;
+}
+
+.btn-small {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+
+/* History Panel */
+.history-panel {
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--button-color);
+}
+
+.history-header h3 {
+    color: var(--primary-color);
+}
+
+.history-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.history-item {
+    background: white;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.history-item:hover {
+    background: #f8f9fa;
+    transform: translateX(4px);
+}
+
+.history-expression {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 4px;
+}
+
+.history-result {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.history-time {
+    font-size: 0.7rem;
+    color: #7f8c8d;
+    text-align: right;
+    margin-top: 4px;
+}
+
+/* Error Display */
+.error-display {
+    background: var(--error-color);
+    color: white;
+    padding: 15px;
+    margin: 20px;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.error-display button {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .history-panel {
+        order: -1;
+    }
+    
+    .btn {
+        padding: 15px;
+        font-size: 1rem;
+    }
+}

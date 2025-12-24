@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Calculator{% endblock %}
+
+{% block content %}
+<div class="calculator-app">
+    <header class="app-header">
+        <h1>Calculator</h1>
+        <div class="session-info">
+            <span id="session-status" class="session-status">Connected</span>
+        </div>
+    </header>
+    
+    <div class="calculator-container">
+        <!-- Main Calculator Display -->
+        <div class="calculator">
+            <div class="display">
+                <div class="previous-operand" id="previous-operand"></div>
+                <div class="current-operand" id="current-operand">0</div>
+            </div>
+            
+            <div class="buttons-grid">
+                <button class="btn btn-clear" data-action="clear">C</button>
+                <button class="btn btn-clear" data-action="clear-entry">CE</button>
+                <button class="btn btn-operator" data-action="backspace">⌫</button>
+                <button class="btn btn-operator" data-operator="/">÷</button>
+                
+                <button class="btn" data-number="7">7</button>
+                <button class="btn" data-number="8">8</button>
+                <button class="btn" data-number="9">9</button>
+                <button class="btn btn-operator" data-operator="*">×</button>
+                
+                <button class="btn" data-number="4">4</button>
+                <button class="btn" data-number="5">5</button>
+                <button class="btn" data-number="6">6</button>
+                <button class="btn btn-operator" data-operator="-">-</button>
+                
+                <button class="btn" data-number="1">1</button>
+                <button class="btn" data-number="2">2</button>
+                <button class="btn" data-number="3">3</button>
+                <button class="btn btn-operator" data-operator="+">+</button>
+                
+                <button class="btn btn-zero" data-number="0">0</button>
+                <button class="btn" data-action="decimal">.</button>
+                <button class="btn btn-equals" data-action="calculate">=</button>
+            </div>
+        </div>
+        
+        <!-- History Panel -->
+        <div class="history-panel">
+            <div class="history-header">
+                <h3>History</h3>
+                <button class="btn btn-small" data-action="clear-history">Clear</button>
+            </div>
+            <div class="history-list" id="history-list">
+                <!-- History items will be populated here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Error Display -->
+    <div class="error-display" id="error-display" style="display: none;">
+        <span id="error-message"></span>
+        <button class="btn btn-small" data-action="dismiss-error">×</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/keyboard-handler.js') }}"></script>
+<script src="{{ url_for('static', filename='js/history-manager.js') }}"></script>
+<script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+{% endblock %}
